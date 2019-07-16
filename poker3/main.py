@@ -68,6 +68,3 @@ if game_type == 4:
     record_deck(player_c, '四人斗地主03副牌.txt')
     record_deck(player_d, '四人斗地主04副牌.txt')
     record_deck(player_dumy, '四人斗地主-预留牌.txt')
-
-
-prt_menu_b(game_type)
