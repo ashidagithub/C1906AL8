@@ -70,7 +70,7 @@ def record_deck(deck_to_be_record, filename):
     print('\n -- debug: I record a deck')
 
     out_path = os.getcwd() + '\\OutputDecks\\' + filename
-    print(out_path)
+    #print(out_path)
     f = codecs.open(out_path, "w", "utf-8")
     for card in deck_to_be_record:
         f.write(card)
