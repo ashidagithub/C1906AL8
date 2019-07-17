@@ -13,27 +13,31 @@ import time
 import os
 
 # import our modules
-from game.menu import *
+from display.menu import *
+from display.show import *
+
 from machine.std_mach import *
 from dealer.mike import *
 
-# ----------
+# Phase 1-----------------------------------------------------------------------
 # 打印开始界面
-prt_start()
+dsp_start()
 time.sleep(1)  # 延迟3秒
 
+# Phase 2-----------------------------------------------------------------------
 # 打印选择游戏玩法界面
-prt_menu_a()
-game_type = int(input())
+game_type = dsp_choice_game()
 
+# Phase 3-----------------------------------------------------------------------
 # 制作所需要的牌
 deck = []
 if (game_type == 1 or game_type == 2 or game_type == 3 or game_type == 4):
     make_deck_by_type(game_type, deck)
 else:
-    prt_end()
+    dsp_end()
     exit()
 
+# Phase 4-----------------------------------------------------------------------
 # 预先准备4+1个位置放牌
 player_a = []
 player_b = []
@@ -68,3 +72,17 @@ if game_type == 4:
     record_deck(player_c, '四人斗地主03副牌.txt')
     record_deck(player_d, '四人斗地主04副牌.txt')
     record_deck(player_dumy, '四人斗地主-预留牌.txt')
+
+# Phase 5-----------------------------------------------------------------------
+# 查看指定的牌
+deck_no = dsp_show_deck(game_type)
+if deck_no == 0:
+    dsp_end()
+    exit()
+elif (deck_no > -1 and deck_no <= 4) or deck_no == 9:
+    my_deck = read_deck(game_type, deck_no)
+    #print('--debug: final my_deck is : %s' % (my_deck))
+    show_deck_para(my_deck)
+else:
+    dsp_end()
+    print('Error! 挑选了不存在的牌')
