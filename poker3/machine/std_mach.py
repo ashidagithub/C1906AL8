@@ -41,13 +41,12 @@ def create_deck_52(new_deck):
 
     # initialize var
     #cardJokers = ('♞', '♘')
-    cardMarks = ('♠', '♥', '♣', '♦')
-    cardNumbers = ('2', '3', '4', '5', '6', '7', '8',
-                   '9', '10', 'J', 'Q', 'K', 'A')
-
     #for c in cardJokers:
     #    new_deck.append(c)
 
+    cardMarks = ('♠', '♥', '♣', '♦')
+    cardNumbers = ('2', '3', '4', '5', '6', '7', '8',
+                   '9', '10', 'J', 'Q', 'K', 'A')
     # add 4x13 cards
     for cn in cardNumbers:
         for cm in cardMarks:
@@ -63,7 +62,6 @@ def shuffled_deck(deck_to_be_shuffled):
 
     random.shuffle(deck_to_be_shuffled)
     return
-
 
 def record_deck(deck_to_be_record, filename):
     '记录一副牌'
