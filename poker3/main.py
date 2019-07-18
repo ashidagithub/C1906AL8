@@ -75,6 +75,7 @@ if game_type == 4:
 
 # Phase 5-----------------------------------------------------------------------
 # 查看指定的牌
+'''
 deck_no = dsp_show_deck(game_type)
 if deck_no == 0:
     dsp_end()
@@ -86,3 +87,4 @@ elif (deck_no > -1 and deck_no <= 4) or deck_no == 9:
 else:
     dsp_end()
     print('Error! 挑选了不存在的牌')
+'''
